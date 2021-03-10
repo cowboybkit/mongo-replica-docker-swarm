@@ -12,6 +12,11 @@ services:
       - mongo-config-1:/data/configdb
     networks:
       - mongo
+    ports:
+      - target: 27017
+        published: 27017
+        protocol: tcp
+        mode: host
     deploy:
       replicas: 1
       placement:
@@ -28,6 +33,11 @@ services:
       - mongo-config-2:/data/configdb
     networks:
       - mongo
+    ports:
+      - target: 27017
+        published: 27017
+        protocol: tcp
+        mode: host
     deploy:
       replicas: 1
       placement:
@@ -45,6 +55,11 @@ services:
       - mongo-config-3:/data/configdb
     networks:
       - mongo
+    ports:
+      - target: 27017
+        published: 27017
+        protocol: tcp
+        mode: host
     deploy:
       replicas: 1
       placement:
