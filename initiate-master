@@ -1,5 +1,7 @@
 #!/bin/bash
 
 echo "Intializing replica set on master"
-replicate="rs.add(\"instance-5:27017\"); rs.add(\"instance-6:27017\"); rs.status();"
+MONGO2="instance-5"
+MONGO3="instance-6"
+replicate="rs.add(\"$MONGO2:27017\"); rs.add(\"$MONGO3:27017\"); rs.status();"
 docker exec -it $(docker ps -qf label=com.docker.swarm.service.name=overlay_mongo1) sh -c "echo '$replicate' | mongo"
